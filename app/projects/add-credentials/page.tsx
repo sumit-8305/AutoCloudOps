@@ -45,6 +45,7 @@ export default function Page () {
       }
     } catch (error) {
       setMessage('An error occurred while saving the credentials.');
+      console.log(error);
     }
   };
 
