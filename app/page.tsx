@@ -1,100 +1,68 @@
-import Image from "next/image";
+// pages/index.js
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen flex flex-col justify-between bg-gray-100">
+      {/* Header Section */}
+      <header className="w-full bg-blue-700 text-white p-6">
+        <h1 className="text-4xl font-bold text-center">Welcome to Project Monitor</h1>
+        <p className="text-center mt-2 text-xl">Your cloud management made simple</p>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      {/* Main Content Section */}
+      <main className="flex-grow flex flex-col items-center justify-start py-16">
+        {/* Introduction Section */}
+        <section className="text-center max-w-4xl mb-16 px-8">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
+            Manage Your Cloud Resources with Ease
+          </h2>
+          <p className="text-lg text-gray-600">
+            Project Monitor simplifies your cloud management tasks, allowing you to create, monitor, and terminate your EC2 instances effortlessly. 
+            With real-time stats and powerful visualizations, you have full control over your cloud infrastructure in one intuitive interface.
+          </p>
+        </section>
+
+        {/* Features Section */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mb-16 px-8">
+          <div className="bg-white shadow-md rounded-lg p-6">
+            <h3 className="text-xl font-bold text-gray-800 mb-3">Real-Time Monitoring</h3>
+            <p className="text-gray-600">
+              Keep track of your cloud instances with real-time monitoring and get detailed insights into their performance.
+            </p>
+          </div>
+          <div className="bg-white shadow-md rounded-lg p-6">
+            <h3 className="text-xl font-bold text-gray-800 mb-3">Automated Setup</h3>
+            <p className="text-gray-600">
+              Quickly set up and deploy EC2 instances using automated scripts. Focus on your projects, while we handle the backend for you.
+            </p>
+          </div>
+          <div className="bg-white shadow-md rounded-lg p-6">
+            <h3 className="text-xl font-bold text-gray-800 mb-3">Seamless Integration</h3>
+            <p className="text-gray-600">
+              Integrate your cloud resources easily with other tools, enabling smooth workflows and better productivity.
+            </p>
+          </div>
+        </section>
+
+        {/* Call to Action Section */}
+        <section className="text-center mb-16 px-8">
+          <h2 className="text-3xl font-semibold text-gray-800 mb-6">
+            Ready to Start Managing Your Projects?
+          </h2>
+          <p className="text-lg text-gray-600 mb-8">
+            Jump into the projects page to create and manage your cloud resources. View stats, monitor your EC2 instances, and take control of your infrastructure.
+          </p>
+          <Link href="/projects" className="bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-blue-700 transition duration-300 ease-in-out">
+            Go to Projects
+          </Link>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer Section */}
+      <footer className="w-full bg-gray-200 text-gray-600 py-6 text-center">
+        <p>© 2024 Project Monitor. All rights reserved.</p>
+        <p>Contact Us: support@projectmonitor.com</p>
       </footer>
     </div>
   );
