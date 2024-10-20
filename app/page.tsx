@@ -24,7 +24,7 @@ export default function Home() {
             With real-time stats and powerful visualizations, you have full control over your cloud infrastructure in one intuitive interface.
           </p>
           <p className="text-lg text-gray-600 mb-4">
-            Whether you're a developer looking to streamline your workflow or a team leader managing multiple projects, AutoCloudOps provides the tools you need to optimize your cloud operations efficiently.
+            Whether you are a developer looking to streamline your workflow or a team leader managing multiple projects, AutoCloudOps provides the tools you need to optimize your cloud operations efficiently.
           </p>
           <p className="text-lg text-gray-600">
             Dive into the world of cloud automation with features that enhance productivity, reduce operational costs, and elevate your project management capabilities.
