@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { HomeIcon } from '@heroicons/react/24/outline';
+import { RocketLaunchIcon, DocumentIcon, ChartBarIcon, CloudIcon } from '@heroicons/react/24/outline';
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
             Manage Your Cloud Resources with Ease
           </h2>
           <p className="text-lg text-gray-600 mb-4">
-            AutoCloudOps simplifies your cloud management tasks, allowing you to create, monitor, and terminate your EC2 instances effortlessly. 
+            AutoCloudOps simplifies your cloud management tasks, allowing you to create, monitor, and terminate your EC2 instances effortlessly.
             With real-time stats and powerful visualizations, you have full control over your cloud infrastructure in one intuitive interface.
           </p>
           <p className="text-lg text-gray-600 mb-4">
@@ -72,7 +72,7 @@ export default function Home() {
             Upcoming Features
           </h2>
           <div className="bg-white shadow-md rounded-lg p-6 flex items-center">
-            <HomeIcon className="h-10 w-10 text-blue-600 mr-4" />
+            <RocketLaunchIcon className="h-10 w-10 text-blue-600 mr-4" />
             <div>
               <h3 className="text-xl font-bold text-gray-800 mb-1">Enhanced Reporting Tools</h3>
               <p className="text-gray-600">
@@ -81,7 +81,7 @@ export default function Home() {
             </div>
           </div>
           <div className="bg-white shadow-md rounded-lg p-6 flex items-center">
-            <HomeIcon className="h-10 w-10 text-blue-600 mr-4" />
+            <DocumentIcon className="h-10 w-10 text-blue-600 mr-4" />
             <div>
               <h3 className="text-xl font-bold text-gray-800 mb-1">Advanced Cost Analysis</h3>
               <p className="text-gray-600">
@@ -90,7 +90,7 @@ export default function Home() {
             </div>
           </div>
           <div className="bg-white shadow-md rounded-lg p-6 flex items-center">
-            <HomeIcon className="h-10 w-10 text-blue-600 mr-4" />
+            <ChartBarIcon className="h-10 w-10 text-blue-600 mr-4" />
             <div>
               <h3 className="text-xl font-bold text-gray-800 mb-1">Integration with ML Services</h3>
               <p className="text-gray-600">
@@ -99,7 +99,7 @@ export default function Home() {
             </div>
           </div>
           <div className="bg-white shadow-md rounded-lg p-6 flex items-center">
-            <HomeIcon className="h-10 w-10 text-blue-600 mr-4" />
+            <CloudIcon className="h-10 w-10 text-blue-600 mr-4" />
             <div>
               <h3 className="text-xl font-bold text-gray-800 mb-1">Multi-Cloud Management</h3>
               <p className="text-gray-600">
