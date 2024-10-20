@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -6,7 +6,13 @@ export default function Dashboard() {
   const [runningInstances, setRunningInstances] = useState<number | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [totalInstances, setTotalInstances] = useState<number | null>(null); // New state for total instances
+  const [totalInstances, setTotalInstances] = useState<number | null>(null);
+
+  // Dummy data to display in case of an error
+  const dummyData = {
+    runningInstances: 3,
+    totalInstances: 10,
+  };
 
   useEffect(() => {
     const fetchInstances = async () => {
@@ -20,12 +26,14 @@ export default function Dashboard() {
         setRunningInstances(data.runningInstances || 0);
         setTotalInstances(data.totalInstances || 0);
       } catch (error) {
-        // Type assertion to handle unknown error
         if (error instanceof Error) {
           setErrorMessage(error.message);
         } else {
           setErrorMessage('An unexpected error occurred');
         }
+        // Set dummy data in case of an error
+        setRunningInstances(dummyData.runningInstances);
+        setTotalInstances(dummyData.totalInstances);
       } finally {
         setLoading(false);
       }
@@ -38,7 +46,6 @@ export default function Dashboard() {
     <div className="flex flex-col p-4">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">Dashboard Overview</h1>
-        {/* Button to navigate to the AWS credentials page */}
         <Link href="/projects/add-credentials">
           <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
             Manage AWS Credentials
@@ -46,28 +53,37 @@ export default function Dashboard() {
         </Link>
       </div>
 
-      {loading && <p className="mb-4">Loading data...</p>} {/* Loading indicator */}
+      {loading && <p className="mb-4">Loading data...</p>}
+      {errorMessage && <div className="mb-4 text-red-500">{errorMessage}</div>}
       {errorMessage && (
-        <div className="mb-4 text-red-500">{errorMessage}</div>
+        <div className="mb-4 text-yellow-500">
+          Dummy data showing: Running Instances: {dummyData.runningInstances}, Total Instances: {dummyData.totalInstances}
+        </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-blue-600 p-4 rounded-md">
-          <h2 className="text-lg font-semibold">Running EC2 Instances</h2>
-          <p className="text-2xl">{runningInstances !== null ? runningInstances : 'N/A'}</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+        {/* Card for Running Instances */}
+        <div className="bg-blue-600 p-4 rounded-lg shadow-lg">
+          <h2 className="text-lg font-semibold text-white">Running EC2 Instances</h2>
+          <p className="text-2xl text-white">{runningInstances !== null ? runningInstances : 'N/A'}</p>
         </div>
-        <div className="bg-green-600 p-4 rounded-md">
-          <h2 className="text-lg font-semibold">Total EC2 Instances</h2>
-          <p className="text-2xl">{totalInstances !== null ? totalInstances : 'N/A'}</p>
+
+        {/* Card for Total Instances */}
+        <div className="bg-green-600 p-4 rounded-lg shadow-lg">
+          <h2 className="text-lg font-semibold text-white">Total EC2 Instances</h2>
+          <p className="text-2xl text-white">{totalInstances !== null ? totalInstances : 'N/A'}</p>
         </div>
-        {/* Add more cards here as needed */}
-        <div className="bg-yellow-600 p-4 rounded-md">
-          <h2 className="text-lg font-semibold">Other Metrics</h2>
-          <p className="text-2xl">More data can go here</p>
+
+        {/* Additional Dummy Metrics Card */}
+        <div className="bg-yellow-600 p-4 rounded-lg shadow-lg">
+          <h2 className="text-lg font-semibold text-white">Other Metrics</h2>
+          <p className="text-2xl text-white">More data can go here</p>
         </div>
-        <div className="bg-red-600 p-4 rounded-md">
-          <h2 className="text-lg font-semibold">Health Status</h2>
-          <p className="text-2xl">All systems operational</p>
+
+        {/* Health Status Card */}
+        <div className="bg-red-600 p-4 rounded-lg shadow-lg">
+          <h2 className="text-lg font-semibold text-white">Health Status</h2>
+          <p className="text-2xl text-white">All systems operational</p>
         </div>
       </div>
 

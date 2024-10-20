@@ -12,3 +12,21 @@ body {
     text-wrap: balance;
   }
 }
+.card {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 2rem;
+}

@@ -19,6 +19,7 @@ const links = [
     href: '/projects/EC2-info',
     icon: DocumentDuplicateIcon,
   },
+  { name: 'KPI Dashboard', href: '/projects/kpi-dashboard', icon: UserGroupIcon },
   { name: 'Feedback', href: '/projects/feedback', icon: UserGroupIcon },
 ];
 

@@ -1,81 +1,80 @@
-// app/feedback/page.tsx
-'use client';
+"use client";
 
 import { useState } from 'react';
 
-export default function Feedback() {
+export default function Page (){
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [feedback, setFeedback] = useState('');
+  const [status, setStatus] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError('');
-    setSuccess('');
 
-    const res = await fetch('/api/send-feedback', {
+    const formspreeUrl = process.env.NEXT_PUBLIC_FORMSPREE_URL; // Use NEXT_PUBLIC_ prefix for client-side
+
+    // Check if the URL is defined
+    if (!formspreeUrl) {
+      setStatus('Form submission URL is not defined.');
+      return;
+    }
+
+    const response = await fetch(formspreeUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({ name, email, feedback }),
     });
 
-    const data = await res.json();
-
-    if (res.ok) {
-      alert(data.message); // Alert showing the feature is not accessible
-      setSuccess('Feedback submitted successfully!');
-      // Optionally clear the form
+    if (response.ok) {
+      setStatus('Feedback sent successfully!');
       setName('');
       setEmail('');
-      setMessage('');
+      setFeedback('');
     } else {
-      setError(data.error || 'Something went wrong.');
+      setStatus('Failed to send feedback.');
     }
   };
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Feedback Form</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label className="block mb-2">Name:</label>
-          <input
-            type="text"
+    <div className="flex items-start justify-center min-h-screen bg-gray-100 p-4">
+      <div className="bg-white rounded-lg shadow-md p-8 max-w-xl w-full ">
+        <h2 className="text-3xl font-bold mb-6 text-center">Feedback Form</h2>
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
+          <input 
+            type="text" 
+            placeholder="Your Name" 
             value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            className="border p-2 rounded mb-4 w-full"
+            onChange={(e) => setName(e.target.value)} 
+            required 
+            className="border border-gray-300 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-        </div>
-        <div>
-          <label className="block mb-2">Email:</label>
-          <input
-            type="email"
+          <input 
+            type="email" 
+            placeholder="Your Email" 
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="border p-2 rounded mb-4 w-full"
+            onChange={(e) => setEmail(e.target.value)} 
+            required 
+            className="border border-gray-300 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-        </div>
-        <div>
-          <label className="block mb-2">Message:</label>
-          <textarea
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-            className="border p-2 rounded mb-4 w-full"
-          ></textarea>
-        </div>
-        <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
-          Submit Feedback
-        </button>
-        {error && <p className="text-red-500 mt-2">{error}</p>}
-        {success && <p className="text-green-500 mt-2">{success}</p>}
-      </form>
+          <textarea 
+            placeholder="Your Feedback" 
+            value={feedback}
+            onChange={(e) => setFeedback(e.target.value)} 
+            required 
+            className="border border-gray-300 rounded-md p-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            rows={6}
+          />
+          <button type="submit" className="bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 transition">
+            Submit Feedback
+          </button>
+          {status && <p className={`mt-2 ${status.includes('successfully') ? 'text-green-500' : 'text-red-500'}`}>{status}</p>}
+        </form>
+      </div>
     </div>
   );
-}
+};
+
+
