@@ -3,7 +3,7 @@
 import {
   UserGroupIcon,
   HomeIcon,
-  DocumentDuplicateIcon,
+  DocumentDuplicateIcon, ChartBarIcon
 } from '@heroicons/react/24/outline';
 
 import Link from 'next/link';
@@ -19,7 +19,7 @@ const links = [
     href: '/projects/EC2-info',
     icon: DocumentDuplicateIcon,
   },
-  { name: 'KPI Dashboard', href: '/projects/kpi-dashboard', icon: UserGroupIcon },
+  { name: 'KPI Dashboard', href: '/projects/kpi-dashboard', icon: ChartBarIcon },
   { name: 'Feedback', href: '/projects/feedback', icon: UserGroupIcon },
 ];
 
