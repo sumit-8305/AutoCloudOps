@@ -33,7 +33,7 @@ export default function SideNav() {
       </Link>
       <div className="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <NavLinks />
-        <div className='h-auto w-full grow rounded-md  mt-4'>
+        <div className='h-auto w-full grow rounded-md  mt-2'>
         <header className='ml-2'>
             <SignedOut>
               <SignInButton />
