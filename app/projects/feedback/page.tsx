@@ -39,7 +39,7 @@ export default function Page (){
   };
 
   return (
-    <div className="flex items-start justify-center min-h-screen bg-gray-100 p-4">
+    <div className="flex items-start justify-center min-h-screen  p-4">
       <div className="bg-white rounded-lg shadow-md p-8 max-w-xl w-full ">
         <h2 className="text-3xl font-bold mb-6 text-center">Feedback Form</h2>
         <form onSubmit={handleSubmit} className="flex flex-col space-y-6">

@@ -115,7 +115,7 @@ export default function Home() {
             We Value Your Feedback
           </h2>
           <p className="text-lg text-gray-600 mb-4">
-            Your insights are important to us! Help us improve AutoCloudOps by sharing your thoughts and experiences. We are dedicated to enhancing your cloud management experience.
+            Your insights are important to us!  Help us improve <b>AutoCloudOps</b> <br/> by sharing your thoughts and experiences. We are dedicated to enhance <br/>your cloud management experience.
           </p>
           <Link href="/projects/feedback" className="bg-green-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-green-700 transition duration-300 ease-in-out">
             Give Feedback
