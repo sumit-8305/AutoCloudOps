@@ -127,6 +127,12 @@ export default function ManageEC2() {
     }
   };
 
+  const handleLogout = () => {
+    // Clear dummy data on logout
+    localStorage.removeItem('dummyInstances');
+    // Perform other logout logic if necessary
+  };
+
   
 
   return (
@@ -224,7 +230,12 @@ export default function ManageEC2() {
       )}
 
       {/* Logout button for testing purposes */}
-      
+      <button
+        onClick={handleLogout}
+        className="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+      >
+      Clear Catche
+      </button>
     </div>
   );
 }
